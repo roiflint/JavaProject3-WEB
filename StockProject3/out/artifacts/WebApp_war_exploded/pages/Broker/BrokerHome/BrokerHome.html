@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Broker Home</title>
+    <link rel="stylesheet" href="HomeStyle.css" />
+    <script src="../../../common/jquery-2.0.3.min.js"></script>
+    <script src="../../../common/context-path-helper.js"></script>
+    <script src="BrokerHome.js"></script>
+    <script src="../../../common/jquery.form.js"></script>
+</head>
+<body>
+<!-- Navbar Section -->
+<nav class="navbar">
+    <div class="navbar__container">
+        <a href="#stocks" id="navbar__logo">STONKS</a>
+        <div class="navbar__toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+            <li class="navbar__item">
+                <a href="#wallet" class="navbar__links" id="myWallet"></a>
+            </li>
+            <li class="navbar_items">
+                <a href="#stocks" class="navbar__links" id="stocks-page">All Stocks</a>
+            </li>
+            <li class="navbar_items">
+                <a href="#transactions" class="navbar__links" id="transactions-page">Transactions</a>
+            </li>
+            <li class="navbar_items">
+                <a href="#loadXML" class="navbar__links" id="loadXML-page">Load XML</a>
+            </li>
+            <li class="navbar_items">
+                <a href="#issueStock" class="navbar__links" id="newStock-page">Issue Stock</a>
+            </li>
+            <li class="navbar__item">
+                <a href="#onlineUsers" class="navbar__links" id="online-users">Online Users</a>
+            </li>
+            <li class="navbar__item">
+                <a href="#userUpdates" class="navbar__links" id="user-updates">Updates</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Stocks Section -->
+<div class="Stocks" id="stocks">
+    <div class="stocks__container">
+        <table id="stocksList">
+            <caption class="table__heading">ALL STOCKS</caption>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>SYMBOL</th>
+                <th>COMPANY NAME</th>
+                <th>PRICE</th>
+                <th>CYCLE</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+
+<!-- Transactions Section -->
+<div class="Transaction" id="transactions">
+    <div class="transaction__container">
+        <table id="transactionsList">
+        <caption class="table__heading">ALL TRANSACTIONS</caption>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>TYPE</th>
+                <th>SYMBOL</th>
+                <th>PRICE</th>
+                <th>OLD BALANCE</th>
+                <th>NEW BALANCE</th>
+                <th>DATE</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Load XML Section -->
+<div class="loadFile" id="loadXML">
+    <div class="loadFile__container">
+        <form class = "box" method="post" action="loadFile" id="loadXMLform" enctype="multipart/form-data">
+            <h1 class="Formlbl">Load XML</h1>
+            <input type="file" id="fileINP" name="fileINP" accept=".xml" required>
+            <input type="submit" value="upload">
+            <div id="XML-Error-Placeholder"></div>
+        </form>
+    </div>
+</div>
+
+<!-- Add new stock Section -->
+<div class="issueStock" id="issueStock">
+    <div class="issueStock__container">
+        <form class = "box" method="post" action="issueStock" id="issueStockform">
+            <h1 class="Formlbl">Issue Stock</h1>
+            <input type="text" name="symbol" placeholder="Symbol" required>
+            <input type="text" name="companyName" placeholder="Company Name" required>
+            <input type="number" name="quantity" min="1" placeholder="Quantity" required oninput="validity.valid||(value='');">
+            <input type="number" name="price" min="1" placeholder="Price per share" required oninput="validity.valid||(value='');">
+            <input type="submit" value="Issue Stock">
+            <div id="Stock-Error-Placeholder"></div>
+        </form>
+    </div>
+</div>
+
+<!-- Add funds Section -->
+<div class="addFunds" id="wallet">
+    <div class="addFunds__container">
+    <form class = "box" method="post" action="addFundsToWallet" id="addFunds">
+        <h1 class="Formlbl">Add Funds</h1>
+        <input name="funds" type="number" min="1" placeholder="Add Funds" id="fundsField" required oninput="validity.valid||(value='');">
+        <input type="submit" value="Add Funds">
+    </form>
+    </div>
+</div>
+
+<!-- Online users Section -->
+<div class="users" id="onlineUsers">
+    <div class="users__container">
+        <table id="usersList">
+            <caption class="table__heading">ONLINE USERS</caption>
+             <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Role</th>
+                </tr>
+             </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+<!-- User updates section -->
+<div class="Updates" id="userUpdates">
+    <div class="update__container">
+        <table id="updateList">
+            <caption class="table__heading">UPDATES</caption>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Updates</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+<script src="HomeJS.js"></script>
+</body>
+</html>

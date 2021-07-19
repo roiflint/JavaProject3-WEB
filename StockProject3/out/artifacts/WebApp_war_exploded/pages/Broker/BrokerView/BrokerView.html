@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Broker View</title>
+    <link rel="stylesheet" href="../BrokerHome/HomeStyle.css" />
+    <script src="../../../common/jquery-2.0.3.min.js"></script>
+    <script src="../../../common/context-path-helper.js"></script>
+    <script src="BrokerView.js"></script>
+</head>
+<body>
+<!-- Navbar Section -->
+<nav class="navbar">
+    <div class="navbar__container">
+        <a href="../BrokerHome/BrokerHome.html" id="navbar__logo">STONKS</a>
+        <div class="navbar__toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+            <li class="navbar_items">
+                <a href="../BrokerHome/BrokerHome.html" class="navbar__links" id="home">Home</a>
+            </li>
+            <li class="navbar_items">
+                <a href="#info" class="navbar__links" id="info-page">Information</a>
+            </li>
+            <li class="navbar_items">
+                <a href="#previous" class="navbar__links" id="previous-page">Previous Deals</a>
+            </li>
+            <li class="navbar_items">
+                <a href="#makeTransaction" class="navbar__links" id="transaction-page">Make Transactions</a>
+            </li>
+            <li class="navbar__item">
+                <a href="#userUpdates" class="navbar__links" id="user-updates">Updates</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Stocks Section -->
+<div class="information" id="info">
+    <div class="information__container">
+        <table id="stockInformationTable">
+            <caption class="table__heading" id="symbolPlaceholder">SYMBOL PLACEHOLDER</caption>
+            <thead>
+            <tr>
+                <th>SYMBOL</th>
+                <th>COMPANY NAME</th>
+                <th>PRICE</th>
+                <th>CYCLE</th>
+                <th>HOLDINGS</th>
+            </tr>
+            <</thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Previous Transactions Section -->
+<div class="previousTransactions" id="previous">
+    <div class="previousTransactions__container">
+        <table id="previousTable">
+            <caption class="table__heading">Previous Transactions</caption>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>QUANTITY</th>
+                <th>PRICE</th>
+                <th>DATE</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Make Transaction Section -->
+<div class="MakeTransaction" id="makeTransaction">
+    <div class="makeTransaction__container">
+        <form class = "box" method="post" action="makeTransaction" id="transactionForm">
+            <h1 class="Formlbl">Make Transaction</h1>
+            <div class="lbl">Buy/Sell:</div>
+            <div class="wrap">
+                <input type="radio" name="bs" value="buy" id="buy" checked>
+                <label for="buy" class="lbl">Buy</label>
+                <input type="radio" name="bs" value="sell" id="sell">
+                <label for="sell" class="lbl">Sell</label>
+            </div>
+            <br><br>
+            <div class="lbl">Action:</div>
+            <div class="wrap">
+            <input type="radio" name="action" value="LMT" id="lmt" checked onclick="priceRequired()">
+                <label for="lmt" class="lbl">LMT</label>
+            <input type="radio" name="action" value="MKT" id="mkt" onclick="priceRequired()">
+                <label for="mkt" class="lbl">MKT</label>
+            <input type="radio" name="action" value="FOK" id="fok" onclick="priceRequired()">
+                <label for="fok" class="lbl">FOK</label>
+            <input type="radio" name="action" value="IOC" id="ioc" onclick="priceRequired()">
+                <label for="ioc" class="lbl">IOC</label>
+            </div>
+            <br>
+            <input type="number" name="price" min="0" id="price" placeholder="Price per share" required oninput="validity.valid||(value='');">
+            <input type="number" name="quantity" id="quantity" min="0" placeholder="Number of shares" required oninput="validity.valid||(value='');">
+            <input type="submit" value="OK">
+            <input type="hidden" name="symbol" id="symbolHolder">
+            <div id="Error-Placeholder"></div>
+        </form>
+    </div>
+</div>
+
+<!-- User updates section -->
+<div class="Updates" id="userUpdates">
+    <div class="update__container">
+        <table id="updateList">
+            <caption class="table__heading">UPDATES</caption>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Updates</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+<script src="../../Broker/BrokerHome/HomeJS.js"></script>
+</body>
+</html>

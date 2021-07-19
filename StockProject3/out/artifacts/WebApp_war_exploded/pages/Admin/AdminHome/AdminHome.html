@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Home</title>
+    <link rel="stylesheet" href="../../Broker/BrokerHome/HomeStyle.css" />
+    <script src="../../../common/jquery-2.0.3.min.js"></script>
+    <script src="../../../common/context-path-helper.js"></script>
+    <script src="AdminHome.js"></script>
+
+</head>
+<body>
+<!-- Navbar Section -->
+<nav class="navbar">
+    <div class="navbar__container">
+        <a href="#stocks" id="navbar__logo">STONKS</a>
+        <div class="navbar__toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
+            <li class="navbar_items">
+                <a href="#stocks" class="navbar__links" id="stocks-page">All Stocks</a>
+            </li>
+            <li class="navbar__item">
+                <a href="#onlineUsers" class="navbar__links" id="online-users">Online Users</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Stocks Section -->
+<div class="Stocks" id="stocks">
+    <div class="stocks__container">
+        <table id="stocksList">
+            <caption class="table__heading">ALL STOCKS</caption>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>SYMBOL</th>
+                <th>COMPANY NAME</th>
+                <th>PRICE</th>
+                <th>CYCLE</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+
+<!-- Online users Section -->
+<div class="users" id="onlineUsers">
+    <div class="users__container">
+        <table id="usersList">
+            <caption class="table__heading">ONLINE USERS</caption>
+            <thead>
+            <tr>
+                <th>Username</th>
+                <th>Role</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+<script src="../../Broker/BrokerHome/HomeJS.js"></script>
+</body>
+</html>
